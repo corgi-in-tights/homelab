@@ -31,7 +31,6 @@ spec:
     name: flux-system
   path: ./infrastructure/configs
   prune: true
-  # TEMPORARY: Use Let's Encrypt Staging environment to avoid hitting production rate limits while setting up
   patches:
     - patch: |
         - op: replace

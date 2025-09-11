@@ -1,0 +1,6 @@
+repos:
+  - repo: https://github.com/getsops/sops
+    rev: v3.9.0
+    hooks:
+      - id: sops-pre-commit
+        files: ^secrets/.*\.(yaml|yml)$
