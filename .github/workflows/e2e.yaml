@@ -27,7 +27,7 @@ jobs:
           --branch=${GITHUB_REF#refs/heads/} \
           --username=${GITHUB_ACTOR} \
           --password=${{ secrets.GITHUB_TOKEN }} \
-          --ignore-paths="clusters/**/flux-system/"
+          --ignore-paths="clusters/**/flux-system/,secrets/"
           flux create kustomization flux-system \
           --source=flux-system \
           --path=./clusters/stable

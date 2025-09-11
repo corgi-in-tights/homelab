@@ -1,6 +1,6 @@
 repos:
-  - repo: https://github.com/getsops/sops
-    rev: v3.9.0
+-   repo: https://github.com/voldy/validate-sops
+    rev: 'v0.1.2'
     hooks:
-      - id: sops-pre-commit
+    -   id: validate-sops
         files: ^secrets/.*\.(yaml|yml)$
