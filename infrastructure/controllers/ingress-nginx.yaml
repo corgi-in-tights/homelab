@@ -37,3 +37,10 @@ spec:
         type: "NodePort"
     admissionWebhooks:
       enabled: false
+controller:
+  service:
+    type: NodePort
+  ingressClassResource:
+    name: nginx
+    enabled: true
+    default: true

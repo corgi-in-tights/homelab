@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: podinfo
+      version: "6.6.0"
       sourceRef:
         kind: HelmRepository
         name: podinfo
@@ -20,8 +21,11 @@ spec:
   values:
     redis:
       enabled: false
-      repository: public.ecr.aws/docker/library/redis
-      tag: 7.0.6
     ingress:
       enabled: true
       className: nginx
+      hosts:
+        - host: podinfo.reyaan.dev
+          paths:
+            - path: /
+              pathType: Prefix
