@@ -5,7 +5,7 @@ resources:
   - repository.yaml
   - release.yaml
   - storage.yaml
-  - authenik-secrets.yml
+  - authentik-secrets.yml
 
 # configMapGenerator:
 #   - name: authentik-values
