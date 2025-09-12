@@ -26,10 +26,11 @@ spec:
         ports:
           http:
             port: 7878
+
     ingress:
       main:
         enabled: true
-        ingressClassName: nginx
+        className: nginx
         hosts:
           - host: radarr.reyaan.dev
             paths:
@@ -37,6 +38,8 @@ spec:
                 pathType: Prefix
 
     persistence:
-      enabled: true
-      existingClaim: radarr-data
-      mountPath: /config
+      config:
+        enabled: true
+        existingClaim: radarr-data
+        globalMounts:
+          - path: /config

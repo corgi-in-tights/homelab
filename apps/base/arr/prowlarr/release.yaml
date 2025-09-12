@@ -26,10 +26,11 @@ spec:
         ports:
           http:
             port: 9696
+
     ingress:
       main:
         enabled: true
-        ingressClassName: nginx
+        className: nginx
         hosts:
           - host: prowlarr.reyaan.dev
             paths:
@@ -37,6 +38,8 @@ spec:
                 pathType: Prefix
 
     persistence:
-      enabled: true
-      existingClaim: prowlarr-data
-      mountPath: /config
+      config:
+        enabled: true
+        existingClaim: prowlarr-data
+        globalMounts:
+          - path: /config
