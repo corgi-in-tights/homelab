@@ -1,0 +1,49 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: authentik
+  namespace: auth
+spec:
+  chart:
+    spec:
+      chart: authentik
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: authentik
+        namespace: flux-system
+  interval: 30m
+  values:
+    authentik:
+      secret_keySecretRef:
+        name: authentik-secrets
+        key: secret_key
+
+      postgresql:
+        existingSecret: authentik-secrets
+        secretKeys:
+          userPasswordKey: postgres_password
+          userKey: postgres_user
+          databaseKey: postgres_database
+
+    server:
+      ingress:
+        ingressClassName: nginx
+        enabled: true
+        hosts:
+          - auth.reyaan.dev
+
+    postgresql:
+      enabled: true
+      auth:
+        existingSecret: authentik-secrets
+        secretKeys:
+          userPasswordKey: postgres_password
+          userKey: postgres_user
+          databaseKey: postgres_database
+    redis:
+      enabled: true
+
+    persistence:
+      enabled: true
+      existingClaim: authentik-data
