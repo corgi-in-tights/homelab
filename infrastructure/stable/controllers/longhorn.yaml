@@ -34,3 +34,6 @@ spec:
     persistence:
       defaultClass: true
       defaultFsType: ext4
+    defaultSettings:
+      systemManagedComponentsNodeSelector:
+        longhorn-ready: "true"
