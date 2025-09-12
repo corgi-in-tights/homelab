@@ -2,5 +2,15 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - namespace.yaml
-  - authentik/repository.yaml
-  - authentik/release.yaml
+  - repository.yaml
+  - release.yaml
+  - storage.yaml
+  - authenik-secrets.yml
+
+# configMapGenerator:
+#   - name: authentik-values
+#     files:
+#       - values.yaml
+
+# generatorOptions:
+#   disableNameSuffixHash: true
