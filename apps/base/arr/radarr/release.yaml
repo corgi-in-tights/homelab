@@ -1,0 +1,37 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: radarr
+  namespace: arr
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-labs
+        namespace: flux-system
+  values:
+    controllers:
+      radarr:
+        containers:
+          app:
+            image:
+              repository: ghcr.io/home-operations/containers/radarr
+              tag: 5.28.0.10205
+    service:
+      main:
+        ports:
+          http:
+            port: 7878
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: nginx
+        hosts:
+          - host: radarr.reyaan.dev
+            paths:
+              - path: /
+                pathType: Prefix
