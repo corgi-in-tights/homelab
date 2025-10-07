@@ -37,3 +37,4 @@ spec:
     defaultSettings:
       systemManagedComponentsNodeSelector:
         longhorn-ready: "true"
+      defaultReplicaCount: 1  # for now

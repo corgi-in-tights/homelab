@@ -5,12 +5,4 @@ resources:
   - repository.yaml
   - release.yaml
   - storage.yaml
-  - authentik-secrets.yaml
-
-# configMapGenerator:
-#   - name: authentik-values
-#     files:
-#       - values.yaml
-
-# generatorOptions:
-#   disableNameSuffixHash: true
+  - secrets.yaml

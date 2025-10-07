@@ -44,6 +44,3 @@ spec:
     redis:
       enabled: true
 
-    persistence:
-      enabled: true
-      existingClaim: authentik-data

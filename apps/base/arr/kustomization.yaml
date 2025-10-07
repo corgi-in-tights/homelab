@@ -4,6 +4,4 @@ resources:
   - namespace.yaml
   - repository.yaml
   - prowlarr/release.yaml
-  - prowlarr/storage.yaml
   - radarr/release.yaml
-  - radarr/storage.yaml
