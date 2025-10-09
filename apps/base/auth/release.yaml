@@ -13,19 +13,18 @@ spec:
         name: authentik
         namespace: flux-system
   interval: 30m
+
+  valuesFrom:
+    - kind: Secret
+      name: authentik-secrets
+      valuesKey: secret_key
+      targetPath: authentik.secret_key
+    - kind: Secret
+      name: authentik-secrets
+      valuesKey: postgres_password
+      targetPath: authentik.postgresql.password
+
   values:
-    authentik:
-      secret_keySecretRef:
-        name: authentik-secrets
-        key: secret_key
-
-      postgresql:
-        existingSecret: authentik-secrets
-        secretKeys:
-          userPasswordKey: postgres_password
-          userKey: postgres_user
-          databaseKey: postgres_database
-
     server:
       ingress:
         ingressClassName: nginx
@@ -38,9 +37,7 @@ spec:
       auth:
         existingSecret: authentik-secrets
         secretKeys:
-          userPasswordKey: postgres_password
-          userKey: postgres_user
-          databaseKey: postgres_database
+          passwordKey: postgres_password
+        
     redis:
       enabled: true
-
