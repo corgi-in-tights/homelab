@@ -31,6 +31,12 @@ spec:
         enabled: true
         hosts:
           - auth.reyaan.dev
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secrets
+              key: secret_key
 
     postgresql:
       enabled: true
@@ -41,3 +47,11 @@ spec:
         
     redis:
       enabled: true
+
+    worker:
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secrets
+              key: secret_key
