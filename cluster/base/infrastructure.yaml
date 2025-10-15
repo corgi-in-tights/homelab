@@ -11,7 +11,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/stable/controllers
+  path: ./infrastructure/controllers
   prune: true
   wait: true
 ---
@@ -29,7 +29,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/stable/configs
+  path: ./infrastructure/configs
   prune: true
   patches:
     - patch: |

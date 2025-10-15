@@ -31,11 +31,11 @@ jobs:
             --branch=${GITHUB_REF#refs/heads/} \
             --username=${GITHUB_ACTOR} \
             --password=${{ secrets.GITHUB_TOKEN }} \
-            --ignore-paths="clusters/**/flux-system/,secrets/"
+            --ignore-paths="cluster/base/flux-system/,secrets/"
           
           flux create kustomization podinfo \
             --source=flux-system \
-            --path=./apps/stable/podinfo \
+            --path=./apps/podinfo \
             --prune=true \
             --interval=5m
 

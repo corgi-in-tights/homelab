@@ -19,8 +19,6 @@ spec:
   # Default values
   # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
   values:
-    redis:
-      enabled: false
     ingress:
       enabled: true
       className: nginx
