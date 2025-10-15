@@ -35,7 +35,7 @@ jobs:
           
           flux create kustomization podinfo \
             --source=flux-system \
-            --path=./apps/podinfo \
+            --path=cluster/apps/podinfo \
             --prune=true \
             --interval=5m
 
