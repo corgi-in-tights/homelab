@@ -33,7 +33,12 @@ spec:
       interval: 12h
   values:
     controller:
+      kind: DaemonSet
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       service:
-        type: "LoadBalancer"
-    admissionWebhooks:
-      enabled: false
+        type: ClusterIP
+      publishService:
+        enabled: false
+      admissionWebhooks:
+        enabled: false
