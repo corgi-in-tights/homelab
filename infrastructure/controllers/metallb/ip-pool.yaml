@@ -1,0 +1,47 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: main-pool
+  namespace: metallb
+spec:
+  addresses:
+    - ENC[AES256_GCM,data:iI7O3T4eN2Mr7HEOSK86cWH/92N8DE+quCfx,iv:YB+Hm2yU4mPJe6yxP2viaoUoJLWndj4zT+oeV+9AiVU=,tag:5NaAXeNBH6dxJB7ETWqoEA==,type:str]
+sops:
+  age:
+    - recipient: age1mf0f83wwjpn9q3kym0pupasuy0qdze2zhpwr2c2s8a7al082nd2qg9rhq3
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAzNDN1VFlaNWNRQzlPUnBy
+        bU1HdVJBdnJua1ozc2RIUjdNYkpqTC9qNW5FClNGODNvTU5DT1JxYWRVK0VsOGdT
+        RnVSUHdCYUVWMXdNODQ3WDhscnRiaWMKLS0tIGEwSjdROE4vWGxHK0dkWDBQZUsy
+        V0JBT1dzMnE5NStYWGNESXhZK0JjbEUKaJy0FMSGErTsoe2O1k/e3M8EalorvPMS
+        IpBnYPjJWuO5eYsVc95JFR3ELdqTOmFLQ9tVzSAbs8z9//+7rK7UHw==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-01-02T20:51:51Z"
+  mac: ENC[AES256_GCM,data:tGhT2ucvlPsXNrG6NWGi485ekbdWpkXIfKnHQAga+OaLSUty6geFyvOp7pyXw7MD75E3F9hIyzJaFySHXG6rpsKnB+xQ1tZvyy2VBCFDfviH4kY5wwvzhgL1kUsauDQcD2XuPAK04xDRZuTpYM+XmC9DCqXSJ5GJlsC/2RBkZds=,iv:Jt4gJS+9mKVSxoML/9dT5ju0lVol9LIfeBP76eV+aPc=,tag:Qb6UhVOdkkeay7ptImNrzw==,type:str]
+  encrypted_regex: ^(spec|data|stringData)$
+  version: 3.11.0
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: l2-adv
+  namespace: metallb
+spec:
+  ipAddressPools:
+    - main-pool
+sops:
+  age:
+    - recipient: age1mf0f83wwjpn9q3kym0pupasuy0qdze2zhpwr2c2s8a7al082nd2qg9rhq3
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAzNDN1VFlaNWNRQzlPUnBy
+        bU1HdVJBdnJua1ozc2RIUjdNYkpqTC9qNW5FClNGODNvTU5DT1JxYWRVK0VsOGdT
+        RnVSUHdCYUVWMXdNODQ3WDhscnRiaWMKLS0tIGEwSjdROE4vWGxHK0dkWDBQZUsy
+        V0JBT1dzMnE5NStYWGNESXhZK0JjbEUKaJy0FMSGErTsoe2O1k/e3M8EalorvPMS
+        IpBnYPjJWuO5eYsVc95JFR3ELdqTOmFLQ9tVzSAbs8z9//+7rK7UHw==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-01-02T20:51:51Z"
+  mac: ENC[AES256_GCM,data:tGhT2ucvlPsXNrG6NWGi485ekbdWpkXIfKnHQAga+OaLSUty6geFyvOp7pyXw7MD75E3F9hIyzJaFySHXG6rpsKnB+xQ1tZvyy2VBCFDfviH4kY5wwvzhgL1kUsauDQcD2XuPAK04xDRZuTpYM+XmC9DCqXSJ5GJlsC/2RBkZds=,iv:Jt4gJS+9mKVSxoML/9dT5ju0lVol9LIfeBP76eV+aPc=,tag:Qb6UhVOdkkeay7ptImNrzw==,type:str]
+  encrypted_regex: ^(spec|data|stringData)$
+  version: 3.11.0
