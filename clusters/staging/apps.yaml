@@ -21,5 +21,4 @@ spec:
   postBuild:
     substituteFrom:
       - kind: Secret
-        name: domain-secret
-        namespace: cluster-config
+        name: cluster-config
