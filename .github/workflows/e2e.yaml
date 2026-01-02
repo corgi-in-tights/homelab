@@ -22,10 +22,16 @@ jobs:
         run: flux install
       - name: Setup cluster reconciliation
         run: |
+          kubectl create secret generic flux-system \
+          -n flux-system \
+          --from-literal=username=git \
+          --from-literal=password=${{ secrets.GITHUB_TOKEN }}
+
           flux create source git flux-system \
           --url=${{ github.event.repository.html_url }} \
-          --branch=${GITHUB_REF#refs/heads/} \
+          --branch=${{ github.ref_name }} \
           --ignore-paths="./clusters/**/flux-system/"
+          
           flux create kustomization flux-system \
           --source=flux-system \
           --path=./clusters/staging
