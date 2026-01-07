@@ -8,4 +8,5 @@ components:
 
 resources:
   - ./namespace.yaml
+  - ./cilium/ks.yaml
   - ./metrics-server/ks.yaml
