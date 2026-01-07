@@ -8,5 +8,4 @@ components:
 
 resources:
   - ./namespace.yaml
-  - ./podinfo/ks.yaml
   - ./grafana/ks.yaml
