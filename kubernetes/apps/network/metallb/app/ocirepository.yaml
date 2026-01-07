@@ -10,4 +10,4 @@ spec:
     operation: copy
   ref:
     tag: 0.15.3
-  url: oci://registry-1.docker.io/bitnamicharts/metallb
+  url: oci://ghcr.io/metallb/metallb

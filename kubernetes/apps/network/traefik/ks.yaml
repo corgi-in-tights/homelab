@@ -5,7 +5,7 @@ metadata:
   name: traefik
 spec:
   interval: 1h
-  path: ./kubernetes/apps/networking/traefik/app
+  path: ./kubernetes/apps/network/traefik/app
   postBuild:
     substituteFrom:
       - name: cluster-secrets
@@ -15,5 +15,5 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: networking
+  targetNamespace: network
   wait: false
