@@ -33,8 +33,8 @@ spec:
       enabled: false
     ipam:
       mode: kubernetes
-    ipv4NativeRoutingCIDR: "${POD_CIDR}"
-    k8sServiceHost: "${CLUSTER_API_ENDPOINT}"
+    ipv4NativeRoutingCIDR: "10.42.0.0/16"
+    k8sServiceHost: "192.168.68.141"
     k8sServicePort: 6443
     kubeProxyReplacement: true
     kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
@@ -78,3 +78,6 @@ spec:
     socketLB:
       enabled: true
       hostNamespaceOnly: true
+    enableIPv4: true
+    enableIPv4Masquerade: true
+    enableIPMasqAgent: false
