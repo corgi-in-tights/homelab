@@ -55,8 +55,3 @@ spec:
       target:
         group: kustomize.toolkit.fluxcd.io
         kind: Kustomization
-    - 
-      patch: |
-        - op: replace
-          path: /spec/acme/server
-          value: https://acme-staging-v02.api.letsencrypt.org/directory
