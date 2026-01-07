@@ -8,10 +8,3 @@ spec:
     kind: OCIRepository
     name: metallb
   interval: 1h
-  values:
-    configInline:
-      address-pools:
-        - name: default
-          protocol: layer2
-          addresses:
-            -

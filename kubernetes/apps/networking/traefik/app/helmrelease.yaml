@@ -4,8 +4,6 @@ kind: HelmRelease
 metadata:
   name: traefik
 spec:
-  dependsOn:
-    - name: metallb
   chartRef:
     kind: OCIRepository
     name: traefik

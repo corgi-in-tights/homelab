@@ -17,3 +17,6 @@ spec:
     namespace: flux-system
   targetNamespace: networking
   wait: false
+  dependsOn:
+    - name: metallb
+      namespace: networking
