@@ -4,6 +4,9 @@ kind: HelmRelease
 metadata:
   name: traefik
 spec:
+  dependsOn:
+    - name: cilium
+      namespace: kube-system
   chartRef:
     kind: OCIRepository
     name: traefik
