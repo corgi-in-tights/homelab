@@ -14,10 +14,6 @@ spec:
       masquerade: true
       # Ref: https://github.com/siderolabs/talos/issues/10002
       hostLegacyRouting: true
-    #% if cilium_bgp_enabled %#
-    bgpControlPlane:
-      enabled: true
-    #% endif %#
     cni:
       # Required for pairing with Multus CNI
       exclusive: false
@@ -25,8 +21,6 @@ spec:
       automount:
         enabled: false
       hostRoot: /sys/fs/cgroup
-    # NOTE: devices might need to be set if you have more than one active NIC on your hosts
-    # devices: eno+ eth+
     dashboards:
       enabled: true
     endpointRoutes:
@@ -39,31 +33,26 @@ spec:
       enabled: false
     ipam:
       mode: kubernetes
-    ipv4NativeRoutingCIDR: "#{ cluster_pod_cidr }#"
-    k8sServiceHost: 127.0.0.1
-    k8sServicePort: 7445
+    ipv4NativeRoutingCIDR: "${POD_CIDR}"
+    k8sServiceHost: "${CLUSTER_API_ENDPOINT}"
+    k8sServicePort: 6443
     kubeProxyReplacement: true
     kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
     l2announcements:
       enabled: true
     loadBalancer:
       algorithm: maglev
-      mode: "#{ cilium_loadbalancer_mode }#"
+      mode: "dsr"
     localRedirectPolicy: true
     operator:
       dashboards:
         enabled: true
       prometheus:
-        enabled: true
-        serviceMonitor:
-          enabled: true
+        enabled: false
       replicas: 1
       rollOutPods: true
     prometheus:
-      enabled: true
-      serviceMonitor:
-        enabled: true
-        trustCRDsExist: true
+      enabled: false
     rollOutCiliumPods: true
     routingMode: native
     securityContext:
