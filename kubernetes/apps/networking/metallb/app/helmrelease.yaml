@@ -1,0 +1,17 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: metallb
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: metallb
+  interval: 1h
+  values:
+    configInline:
+      address-pools:
+        - name: default
+          protocol: layer2
+          addresses:
+            -

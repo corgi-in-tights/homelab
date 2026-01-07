@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: traefik
 spec:
+  dependsOn:
+    - name: metallb
   chartRef:
     kind: OCIRepository
     name: traefik
@@ -11,3 +13,5 @@ spec:
   values:
     service:
       type: LoadBalancer
+      annotations:
+        metallb.universe.tf/loadBalancerIPs: ${TRAEFIK_LOAD_BALANCER_IP}

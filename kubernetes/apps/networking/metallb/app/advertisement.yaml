@@ -1,0 +1,15 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: primary-pool
+spec:
+  addresses:
+  - ${METALLB_IP_RANGE}
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: l2-adv
+spec:
+  ipAddressPools:
+  - primary-pool
