@@ -8,6 +8,8 @@ spec:
     kind: OCIRepository
     name: traefik
   interval: 1h
+  dependsOn:
+    - name: metallb
   values:
     service:
       type: LoadBalancer

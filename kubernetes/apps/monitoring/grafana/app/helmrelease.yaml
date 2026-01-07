@@ -17,10 +17,9 @@ spec:
       enabled: true
       ingressClassName: traefik
       hosts:
-        - host: "grafana.${SECRET_DOMAIN}"
-          paths:
-            - path: /
-              pathType: Prefix
+        - "grafana.${SECRET_DOMAIN}"
+      path: /
+      pathType: Prefix
     grafana.ini:
       server:
         root_url: "https://grafana.${SECRET_DOMAIN}"
